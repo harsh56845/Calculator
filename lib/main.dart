@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const  MaterialApp(
+    return   const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Calculator',
       home: Main(),
@@ -28,10 +28,10 @@ class MyApp extends StatelessWidget {
 
 class Main extends StatelessWidget {
 
- final String _expression = "";
- final String _history = "";
 
- const Main({Key? key}) : super(key: key);
+  const Main({Key? key}) : super(key: key);
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,7 @@ class Main extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(right: 12),
               child: Text(
-                _history,
+                Provider.of<Cal>(context).history,
                 style: GoogleFonts.rubik(
                   textStyle:const  TextStyle(
                     fontSize: 24,
@@ -59,7 +59,7 @@ class Main extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(12),
               child: Text(
-                _expression,
+                Provider.of<Cal>(context).expression,
                 style: GoogleFonts.rubik(
                   textStyle:const  TextStyle(
                     fontSize: 48,

@@ -1,4 +1,4 @@
-// ignore_for_file: unused_field
+
 
 import 'package:flutter/cupertino.dart';
 import 'package:math_expressions/math_expressions.dart';
@@ -6,39 +6,38 @@ import 'package:math_expressions/math_expressions.dart';
 class Cal extends ChangeNotifier{
 
 String footerText = "Made By Harsh";
-  String _expression = "";
-  String _history ="";
-  
+String expression = "";
+String history ="";
 
   void numClick(String text) {
     
-      _expression += text;
+      expression += text;
     notifyListeners();
   }
 
   void allClear(String text) {
     
-      _history = "";
-      _expression = "";
+      history = "";
+      expression = "";
       notifyListeners();
     
   }
 
   void clear(String text) {
     
-      _expression = "";
+      expression = "";
       notifyListeners();
     
   }
 
    void evaluate(String text) {
     Parser p = Parser();
-    Expression exp = p.parse(_expression);
+    Expression exp = p.parse(expression);
     ContextModel cm = ContextModel();
 
     
-      _history = _expression;
-      _expression = exp.evaluate(EvaluationType.REAL, cm).toString();
+      history = expression;
+      expression = exp.evaluate(EvaluationType.REAL, cm).toString();
       notifyListeners();
     
   }
